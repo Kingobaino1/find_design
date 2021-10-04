@@ -1,4 +1,6 @@
 const SIGN_UP = 'SIGN_UP';
+const DESIGN = 'DESIGN';
+const ERROR = 'ERROR';
 
 const SignUp = (user) => (dispatch) => fetch('https://find-design-api.herokuapp.com/users/sign_in', {
   method: 'post',
@@ -31,4 +33,19 @@ const SignUp = (user) => (dispatch) => fetch('https://find-design-api.herokuapp.
       }
     });
 
-export default SignUp;
+const design = () => (dispatch) => fetch('https://find-design-api.herokuapp.com/houses', {
+  mode: 'cors',
+  method: 'GET',
+})
+  .then((response) => response.json())
+  .then((json) => dispatch(
+    { type: DESIGN, payload: json },
+  ))
+  .catch((err) => dispatch(
+    { type: ERROR, error: err },
+  ));
+
+export {
+  SignUp,
+  design
+};

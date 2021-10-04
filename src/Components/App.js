@@ -1,6 +1,8 @@
-import './App.css';
+// import './App.css';
+// import { useSelector } from 'react-redux';
 
-function App() {
+const App = () => {
+  // const state = useSelector((state) => state.registrationReducer.headers)
   return (
     <div className="App">
       <header className="App-header">
@@ -8,6 +10,9 @@ function App() {
         <p>
           Hello World!
         </p>
+        {/* <p>
+          {state}
+        </p> */}
       </header>
     </div>
   );

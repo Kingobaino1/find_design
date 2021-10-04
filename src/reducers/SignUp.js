@@ -2,15 +2,15 @@ const initialState = {
   headers: [],
   error: '',
 };
-const Registration = (state = initialState, action) => {
+const registrationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SIGN_UP':
       return { ...state, headers: action.payload }
     case 'SIGN_ERROR':
       return { ...state, error: action.payload }
     default:
-      break;
+     return state;
   }
 }
 
-export default Registration;
+export default registrationReducer;
