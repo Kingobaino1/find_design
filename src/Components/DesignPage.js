@@ -13,30 +13,26 @@ const DesignPages = () => {
    useEffect(() => {
       dispatch(design());
   }, [dispatch]);
-  const array = state.forEach((design) => console.log(design));
-  console.log(array, 'hello');
   if (state.length === 0) {
     return (
       <Loading />
     );
   }
-  return(
-    <div className="">
-      Hello Javascript
-    {
-      state.forEach((design) => (
-        
-        // <div className="" role="presentation" key={design.id}>
-        //   {console.log(design, 'design')}
-          <Design price={state.price} image={state.image} owner={state.owner} details={state.details} clickHandler={clickHandler} />
-        // </div>
-      ))
-      
-    }
-  
-    </div>
-  )
-
+    return(
+      <>
+        <div className="container mt-5 row">
+        {
+          state.map((design) => (
+            
+            <div className="col-md-4" role="presentation" key={design.id}>
+              <Design price={design.price} image={design.image} owner={design.owner} details={design.details} clickHandler={clickHandler} />
+            </div>
+          ))
+          
+        }
+        </div>
+      </>
+    )
 }
 
 export default connect()(DesignPages);
