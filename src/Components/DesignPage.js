@@ -1,15 +1,18 @@
 import Design from './Design';
 import { useSelector, useDispatch, connect } from 'react-redux';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import { design } from '../actions/index';
 import Loading from './Loading';
+import Nav from './Nav';
 
 const DesignPages = () => {
   const state = useSelector((state) => state.designReducer.design);
+  const currentUser = JSON.parse(localStorage.getItem('sessionID')).user.name;
   const dispatch = useDispatch();
   const clickHandler = () => {
   console.log('Hello world!')
-  }
+  };
+
    useEffect(() => {
       dispatch(design());
   }, [dispatch]);
@@ -17,10 +20,11 @@ const DesignPages = () => {
     return (
       <Loading />
     );
-  }
+  };
     return(
       <>
-        <div className="container mt-5 row">
+        <Nav name={currentUser} />
+        <div className="home mx-auto mt-3 row">
         {
           state.map((design) => (
             
@@ -32,7 +36,7 @@ const DesignPages = () => {
         }
         </div>
       </>
-    )
-}
+    );
+};
 
 export default connect()(DesignPages);

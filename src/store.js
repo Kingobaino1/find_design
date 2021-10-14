@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-// import SignUp from './reducers/SignUp';
+import registrationReducer from './reducers/SignUp';
+import loginReducer from './reducers/SignIn';
 import designReducer from './reducers/DesignImages';
 
 const reducers = combineReducers({
   designReducer,
-  // SignUp,
-})
+  registrationReducer,
+  loginReducer,
+});
 
 const store = createStore(reducers, applyMiddleware(thunk));
 

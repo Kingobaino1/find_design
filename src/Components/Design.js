@@ -8,7 +8,7 @@ const Design = ({ price, owner, image, details, clickHandler }) => (
      <span>${price}</span>
      <span>{details}</span>
     </div>
-    <button type="button"  onClick={() => clickHandler()}>Add to favorite</button>
+    <div className="w-50 mx-auto pb-3"><button type="button"  onClick={() => clickHandler()}>Add to favorite</button></div>
     </div>
     </>
 );

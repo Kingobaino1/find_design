@@ -1,19 +1,17 @@
 import { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { SignUp, errorMessage } from '../actions/index'
-import Form from './Form';
+import { SignIn, errorMessage } from '../actions/index'
+import LoginForm from './LoginForm';
 import { useHistory } from 'react-router-dom';
 
-const Registration = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [user, setUser] = useState(
     {
-      name: '',
       email: '',
       password: '',
-      password_confirmation: '',
     },
   );
 
@@ -24,11 +22,12 @@ const Registration = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(SignUp(user, history));
+    dispatch(SignIn(user, history));
   };
+
   return(
-    <Form user={user} handleChange={handleChange} handleSubmit={handleSubmit} error={errorMessage()} />
+    <LoginForm user={user} handleChange={handleChange} handleSubmit={handleSubmit} error={errorMessage()} />
   )
 };
 
-export default connect()(Registration);
+export default connect()(Login);

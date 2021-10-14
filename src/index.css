@@ -22,9 +22,29 @@ code {
 }
 
 .nav-image {
-  background-image: url('./Img/int-design.jpg');
+  background-image: url('./Img/vintage.jpeg');
   width: 100%;
   height: 100px;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.bg-image {
+  background-image: url('./Img/vin.jpeg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+li {
+  list-style: none;
+}
+
+.w {
+  width: 20%;
+}
+
+.home {
+  width: 90%;
 }

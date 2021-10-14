@@ -2,15 +2,15 @@ const initialState = {
   user: {},
   error: '',
 };
-const registrationReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SIGN_UP':
+    case 'SIGN_IN':
       return { ...state, user: action.payload }
-    case 'ERROR':
+    case 'SIGN_IN_ERROR':
       return { ...state, error: action.payload }
     default:
      return state;
   }
 }
 
-export default registrationReducer;
+export default loginReducer;
