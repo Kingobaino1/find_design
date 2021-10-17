@@ -9,9 +9,6 @@ const DesignPages = () => {
   const state = useSelector((state) => state.designReducer.design);
   const currentUser = JSON.parse(localStorage.getItem('sessionID')).user.name;
   const dispatch = useDispatch();
-  const clickHandler = () => {
-  console.log('Hello world!')
-  };
 
    useEffect(() => {
       dispatch(design());
@@ -27,12 +24,10 @@ const DesignPages = () => {
         <div className="home mx-auto mt-3 row">
         {
           state.map((design) => (
-            
             <div className="col-md-4" role="presentation" key={design.id}>
-              <Design price={design.price} image={design.image} owner={design.owner} details={design.details} clickHandler={clickHandler} />
+              <Design price={design.price} image={design.image} owner={design.owner} details={design.details} id={design.id}  />
             </div>
           ))
-          
         }
         </div>
       </>

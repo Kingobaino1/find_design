@@ -2,6 +2,9 @@ const SIGN_UP = 'SIGN_UP';
 const SIGN_IN = 'SIGN_IN';
 const DESIGN = 'DESIGN';
 const ERROR = 'ERROR';
+const FAV = 'FAV';
+const FAVE = 'FAVE';
+
 let arr = [];
 
 const SignUp = (user, history) => (dispatch) => fetch('https://find-design-api.herokuapp.com/users', {
@@ -92,9 +95,55 @@ const errorMessage = () => {
   return arr[0];
 };
 
+const saveFavoriteCar = (id, token, userId) => (dispatch) => fetch(`https://find-design-api.herokuapp.com/users/${userId}/favourites`, {
+  method: 'POST',
+  body: JSON.stringify({
+    house_id: id,
+  }),
+  headers: {
+   'Content-Type': 'application/json',
+    Accept: 'application/json',
+    mode: 'cors',
+    'Authorization': `Bearer ${token}`,
+  },
+})
+.then(response => response.json())
+.then(fav => dispatch(
+  { type: FAV, payload: fav.house }
+  )
+)
+.catch((err) => dispatch(
+  { type: ERROR, payload: err }
+))
+
+const getFavoriteCars = (token, userId) => (dispatch) => fetch(`https://find-design-api.herokuapp.com/users/${userId}/favourites`, {
+  method: 'GET',
+  headers: {
+   'Content-Type': 'application/json',
+    Accept: 'application/json',
+    mode: 'cors',
+    'Authorization': `Bearer ${token}`,
+  },
+})
+.then(response => response.json())
+.then(fav => {
+  if (Object.entries(fav.cars).length === 0) {
+    return 'You do not have any favorite yet!'
+  } else {
+    dispatch(
+      { type: FAVE, payload: fav.cars }
+    )
+  }
+})
+.catch((err) => dispatch(
+  { type: ERROR, payload: err }
+))
+
 export {
   SignUp,
   design,
   SignIn,
   errorMessage,
+  saveFavoriteCar,
+  getFavoriteCars,
 };
