@@ -4,6 +4,8 @@ const DESIGN = 'DESIGN';
 const ERROR = 'ERROR';
 const FAV = 'FAV';
 const FAVE = 'FAVE';
+const CAR = 'CAR';
+
 
 let arr = [];
 
@@ -32,10 +34,10 @@ const SignUp = (user, history) => (dispatch) => fetch('https://find-design-api.h
           type: SIGN_UP,
           payload: data.user,
         });
-        history.push('/designs')
+        history.push('/home')
       } else if (data.errors) {
         arr.push(data.errors);
-        history.push('/home');
+        history.push('/registration');
       }
   })
   .catch((error) => {
@@ -67,7 +69,7 @@ const SignIn = (user, history) => (dispatch) => fetch('https://find-design-api.h
             type: SIGN_IN,
             payload: data.user,
         });
-        history.push('/designs')
+        history.push('/home')
       } else if (data.error) {
           arr.push(data.error)
           history.push('/login');
@@ -86,6 +88,18 @@ const design = () => (dispatch) => fetch('https://find-design-api.herokuapp.com/
   .then((response) => response.json())
   .then((json) => dispatch(
     { type: DESIGN, payload: json },
+  ))
+  .catch((err) => dispatch(
+    { type: ERROR, error: err },
+  ));
+
+  const getSingleCar = (id) => (dispatch) => fetch(`https://find-design-api.herokuapp.com/houses/${id}`, {
+  mode: 'cors',
+  method: 'GET',
+})
+  .then((response) => response.json())
+  .then((json) => dispatch(
+    { type: CAR, payload: json },
   ))
   .catch((err) => dispatch(
     { type: ERROR, error: err },
@@ -116,7 +130,7 @@ const saveFavoriteCar = (id, token, userId) => (dispatch) => fetch(`https://find
   { type: ERROR, payload: err }
 ))
 
-const getFavoriteCars = (token, userId) => (dispatch) => fetch(`https://find-design-api.herokuapp.com/users/${userId}/favourites`, {
+const getFavoriteCars = (token, userId, history) => (dispatch) => fetch(`https://find-design-api.herokuapp.com/users/${userId}/favourites`, {
   method: 'GET',
   headers: {
    'Content-Type': 'application/json',
@@ -133,6 +147,7 @@ const getFavoriteCars = (token, userId) => (dispatch) => fetch(`https://find-des
     dispatch(
       { type: FAVE, payload: fav.cars }
     )
+    history.push('/favorites')
   }
 })
 .catch((err) => dispatch(
@@ -146,4 +161,5 @@ export {
   errorMessage,
   saveFavoriteCar,
   getFavoriteCars,
+  getSingleCar,
 };

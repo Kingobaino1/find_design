@@ -5,19 +5,25 @@ import {
   Redirect,
 } from 'react-router-dom';
 import Registration from './Components/Registration';
-import DesignPages from './Components/DesignPage';
+import DesignPages from './Containers/DesignPage';
 import Login from './Components/Login';
+import ShowCars from './Containers/ShowCars';
+import SingleCar from './Containers/SingleCar';
+import LoadingPage from './Components/LandingPage';
 
 const Routes = () => (
   <>
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/start" />
         </Route>
-        <Route exact path="/home" component={Registration} />
+        <Route exact path="/start" component={LoadingPage} />
+        <Route exact path="/registration" component={Registration} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/designs" component={DesignPages} />
+        <Route exact path="/favorites" component={ShowCars} />
+        <Route exact path="/car" component={SingleCar} />
+        <Route exact path="/home" component={DesignPages} />
       </Switch>
     </BrowserRouter>
   </>

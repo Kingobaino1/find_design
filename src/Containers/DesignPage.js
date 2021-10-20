@@ -1,30 +1,38 @@
-import Design from './Design';
+import Design from '../Components/Design';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import { useEffect } from 'react';
 import { design } from '../actions/index';
-import Loading from './Loading';
-import Nav from './Nav';
+import Loading from '../Components/Loading';
+import Nav from '../Components/Nav';
 
 const DesignPages = () => {
   const state = useSelector((state) => state.designReducer.design);
+  let message;
   const currentUser = JSON.parse(localStorage.getItem('sessionID')).user.name;
+  const status = JSON.parse(localStorage.getItem('sessionID')).message;
   const dispatch = useDispatch();
+  if (status === 'created') {
+    message = 'Welcome'
+  } else {
+    message = 'Welcome back'
+  }
 
-   useEffect(() => {
-      dispatch(design());
+  useEffect(() => {
+    dispatch(design());
   }, [dispatch]);
+
   if (state.length === 0) {
     return (
       <Loading />
     );
   };
-    return(
+    return (
       <>
-        <Nav name={currentUser} />
-        <div className="home mx-auto mt-3 row">
+        <Nav name={currentUser} greetings={message} />
+        <div className="home mx-auto row">
         {
           state.map((design) => (
-            <div className="col-md-4" role="presentation" key={design.id}>
+            <div className="col-md-6 col-lg-4" role="presentation" key={design.id}>
               <Design price={design.price} image={design.image} owner={design.owner} details={design.details} id={design.id}  />
             </div>
           ))

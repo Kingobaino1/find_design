@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({ user, handleChange, handleSubmit, error }) => {
   return(
@@ -13,7 +14,8 @@ const LoginForm = ({ user, handleChange, handleSubmit, error }) => {
            <input className="form-control" id="Password" type="password" name="password" value={user.password} onChange={handleChange} required/>
          </div>
           <div className="text-danger mb-3">{error}</div>
-         <button type="submit" className="btn btn-primary">Sign in</button>
+         <button type="submit" className="btn color">Sign in</button>
+         <div className="form-text text-dark">don't have an account yet? <Link className="text-primary text-bold" to='/registration'>Sign up</Link></div>
        </form>
     </div> 
   );

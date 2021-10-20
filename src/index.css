@@ -21,20 +21,24 @@ code {
   width: 300px;
 }
 
-.nav-image {
-  background-image: url('./Img/vintage.jpeg');
-  width: 100%;
-  height: 100px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .bg-image {
   background-image: url('./Img/vin.jpeg');
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.landing {
+  background-image: url('./Img/car.jpeg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing ul {
+  width: 15%;
 }
 
 li {
@@ -46,5 +50,82 @@ li {
 }
 
 .home {
-  width: 90%;
+  width: 87%;
 }
+
+.cursor {
+  cursor: pointer;
+}
+
+.color {
+  background-color: #ec5200;
+  border: none;
+}
+
+.about {
+  width: 280px;
+  position: relative;
+  bottom: 60px;
+  left: 10px;
+}
+
+.text {
+  width: 295px;
+}
+
+.underline {
+  list-style: none;
+}
+
+.single {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.list {
+  width: 200px;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .nav-media {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .name {
+    display: none;
+  }
+
+  .sign {
+    margin-right: 20px;
+  }
+
+  .w {
+    width: 85%;
+    margin: 0 auto;
+    display: inline;
+  }
+
+  .single {
+    width: 50%;
+    margin: 0;
+  }
+
+  .list {
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  .about {
+    width: 280px;
+    position: relative;
+    left: 20px;
+    bottom: 60px;
+  }
+
+  .text {
+    margin-left: 20px;
+  }
+}
+

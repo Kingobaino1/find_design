@@ -23,8 +23,8 @@ const Form = ({ user, handleChange, handleSubmit, error }) => {
              <input className="form-control" id="passwordConfirmation" type="password" name="password_confirmation" value={user.password_confirmation} onChange={handleChange} required/>
            </div>
            <div className="text-danger mb-3">{error}</div>
-           <button type="submit" className="btn btn-primary">Register</button>
-           <div className="form-text text-dark">already have an account? <Link className="text-primary text-bold" to='/login'>Sign in</Link></div>
+           <button type="submit" className="btn color">Register</button>
+           <div className="form-text text-dark">already have an account? <Link className="text-primary font-weight-bold text-bold" to='/login'>Sign in</Link></div>
          </form>
       </div>
     </div>
