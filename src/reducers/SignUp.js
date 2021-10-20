@@ -5,12 +5,12 @@ const initialState = {
 const registrationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SIGN_UP':
-      return { ...state, user: action.payload }
+      return { ...state, user: action.payload };
     case 'ERROR':
-      return { ...state, error: action.payload }
+      return { ...state, error: action.payload };
     default:
-     return state;
+      return state;
   }
-}
+};
 
 export default registrationReducer;

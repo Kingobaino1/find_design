@@ -7,7 +7,6 @@ import saveCarReducer from './reducers/SaveCar';
 import getCarsReducer from './reducers/GetCars';
 import singleCarReducer from './reducers/SingleCar';
 
-
 const reducers = combineReducers({
   designReducer,
   registrationReducer,

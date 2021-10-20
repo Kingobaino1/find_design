@@ -8,7 +8,7 @@ const expectedUserState = {
   password_digest: '***********',
   created_at: '2021-05-09',
   updated_at: '2021-05-09',
-}
+};
 
 const expectedRegisterState = {
   message: 'Created',
@@ -24,7 +24,7 @@ const expectedLoginState = {
 
 const getCarObject = {
   house_id: 1,
-}
+};
 
 const expectedHouseState = [
   {
@@ -77,7 +77,7 @@ const signInApiUrl = {
   method: 'POST',
   url: 'https://find-design-api.herokuapp.com/login',
   headers: {
-   'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
     Accept: 'application/json',
     mode: 'cors',
   },
@@ -88,7 +88,7 @@ const signUpApiUrl = {
   method: 'POST',
   url: 'https://find-design-api.herokuapp.com/users',
   headers: {
-   'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
     Accept: 'application/json',
     mode: 'cors',
   },
@@ -102,8 +102,8 @@ const successRegister = () => ({
 
 const successCar = () => ({
   type: 'DESIGN',
-  design: expectedHouseState
-})
+  design: expectedHouseState,
+});
 
 const successLogin = () => ({
   type: 'SIGN_IN',
@@ -115,37 +115,35 @@ const successHouses = () => ({
   design: expectedHouseState,
 });
 
-const fetchDataRegister = async () => dispatch => fetch(('https://find-design-api.herokuapp.com/users', {
+const fetchDataRegister = async () => (dispatch) => fetch(('https://find-design-api.herokuapp.com/users', {
   body: registerObject,
   method: 'POST',
-  headers: { 'content-type': 'application/json', Accept: 'application/json', },
+  headers: { 'content-type': 'application/json', Accept: 'application/json' },
 }))
   .then((response) => response.json())
   .then(() => dispatch(successRegister()));
 
-const fetchDataLogin = async () => dispatch => fetch(('https://find-design-api.herokuapp.com/login', {
+const fetchDataLogin = async () => (dispatch) => fetch(('https://find-design-api.herokuapp.com/login', {
   body: loginObject,
   method: 'POST',
-  headers: { 'content-type': 'application/json', Accept: 'application/json', },
+  headers: { 'content-type': 'application/json', Accept: 'application/json' },
 }))
   .then(() => dispatch(successLogin()));
 
-const fetchDataHouse = async () => dispatch => fetch(('https://find-design-api.herokuapp.com/houses', {
+const fetchDataHouse = async () => (dispatch) => fetch(('https://find-design-api.herokuapp.com/houses', {
   method: 'GET',
   mode: 'cors',
 
 }))
   .then((response) => response.json())
-  .then(() => dispatch(successHouses()))
+  .then(() => dispatch(successHouses()));
 
-const fetchDataFavorite = async () => dispatch => fetch(('https://find-design-api.herokuapp.com/users/1/favourites', {
+const fetchDataFavorite = async () => (dispatch) => fetch(('https://find-design-api.herokuapp.com/users/1/favourites', {
   body: getCarObject,
   method: 'GET',
-  headers: { 'content-type': 'application/json', Accept: 'application/json', 'Authorization': `Bearer ${auth}`,
- },
+  headers: { 'content-type': 'application/json', Accept: 'application/json', Authorization: `Bearer ${auth}`},
 }))
   .then(() => dispatch(successCar()));
-
   const mockStore = configureStore([thunk]);
   let store;
 
@@ -156,7 +154,6 @@ describe('sign up', () => {
   afterEach(() => {
     moxios.uninstall();
   });
-
 
   it('Store is updated correctly', async () => {
     store = mockStore(expectedRegisterState);

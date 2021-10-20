@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { SignIn, errorMessage } from '../actions/index'
-import LoginForm from './LoginForm';
 import { useHistory } from 'react-router-dom';
+import { SignIn, errorMessage } from '../actions/index';
+import LoginForm from './LoginForm';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -16,8 +16,8 @@ const Login = () => {
   );
 
   const handleChange = (event) => {
-    const {value, name} = event.target;
-    setUser(prev => ({...prev, [name]: value}))
+    const { value, name } = event.target;
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (event) => {
@@ -25,9 +25,12 @@ const Login = () => {
     dispatch(SignIn(user, history));
   };
 
-  return(
-    <LoginForm user={user} handleChange={handleChange} handleSubmit={handleSubmit} error={errorMessage()} />
-  )
+  return (
+    <LoginForm user={user} handleChange={handleChange}
+               handleSubmit={handleSubmit}
+               error={errorMessage()}
+    />
+  );
 };
 
 export default connect()(Login);

@@ -1,7 +1,7 @@
 const initialState = {
   design: [],
   error: '',
-}
+};
 
 const designReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +12,6 @@ const designReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default designReducer;
