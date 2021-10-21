@@ -21,9 +21,9 @@ const Cars = ({
 );
 
 Cars.propTypes = {
-  image: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
   owner: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   details: PropTypes.string.isRequired,
 };
 
