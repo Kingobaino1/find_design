@@ -69,8 +69,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://www.microverse.org/).
-- [ Nelson Sakwa on Behance](<https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)>).
-- [The Meal Db](https://www.themealdb.com/api.php)
+- [ Alexey Savitskiy on Behance](<https://www.behance.net/alexey_savitskiy>).
+- [Unplash](https://unsplash.com/)
 
 ## 📝 License
 
