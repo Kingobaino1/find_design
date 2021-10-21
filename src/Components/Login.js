@@ -26,9 +26,11 @@ const Login = () => {
   };
 
   return (
-    <LoginForm user={user} handleChange={handleChange}
-               handleSubmit={handleSubmit}
-               error={errorMessage()}
+    <LoginForm
+      user={user}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      error={errorMessage()}
     />
   );
 };

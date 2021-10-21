@@ -11,7 +11,9 @@ const FavNav = ({ name }) => {
     <>
       <div className="container nav-image d-flex justify-content-between p-4 nav-media">
         <h1 className="text-secondary font-weight-light name">
-          Hi there, {name}
+          Hi there,
+          {' '}
+          {name}
         </h1>
         <ul className="w mt-3 d-flex justify-content-between">
           <li className="cursor"><Link to="/home" className="text-secondary underline">Home</Link></li>

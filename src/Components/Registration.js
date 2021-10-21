@@ -19,17 +19,19 @@ const Registration = () => {
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setUser((prev) => ({ ...prev, [name]: value }))
+    setUser((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(SignUp(user, history));
   };
-  return(
-    <Form user={user} handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          error={errorMessage()}
+  return (
+    <Form
+      user={user}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      error={errorMessage()}
     />
   );
 };

@@ -15,7 +15,7 @@ const DesignPages = () => {
     message = 'Welcome';
   } else {
     message = 'Welcome back';
-  };
+  }
 
   useEffect(() => {
     dispatch(design());
@@ -30,12 +30,15 @@ const DesignPages = () => {
     <>
       <Nav name={currentUser} greetings={message} />
       <div className="home mx-auto row">
-      {
+        {
         state.map((design) => (
           <div className="col-md-6 col-lg-4" role="presentation" key={design.id}>
-            <Design price={design.price} image={design.image}
-                    owner={design.owner} details={design.details}
-                    id={design.id} 
+            <Design
+              price={design.price}
+              image={design.image}
+              owner={design.owner}
+              details={design.details}
+              id={design.id}
             />
           </div>
         ))

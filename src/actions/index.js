@@ -69,8 +69,8 @@ const SignIn = (user, history) => (dispatch) => fetch('https://find-design-api.h
       });
       history.push('/home');
     } else if (data.error) {
-        arr.push(data.error);
-        history.push('/login');
+      arr.push(data.error);
+      history.push('/login');
     }
   })
   .catch((error) => {
@@ -120,7 +120,7 @@ const saveFavoriteCar = (id, token, userId) => (dispatch) => fetch(`https://find
   .then((response) => response.json())
   .then((fav) => dispatch(
     { type: FAV, payload: fav.house },
-    ))
+  ))
   .catch((err) => dispatch(
     { type: ERROR, payload: err },
   ));
@@ -134,15 +134,15 @@ const getFavoriteCars = (token, userId, history) => (dispatch) => fetch(`https:/
     Authorization: `Bearer ${token}`,
   },
 })
-  .then(response => response.json())
-  .then(fav => {
+  .then((response) => response.json())
+  .then((fav) => {
     if (Object.entries(fav.cars).length === 0) {
       return 'You do not have any favorite yet!';
     }
     dispatch(
       { type: FAVE, payload: fav.cars },
-    )
-    history.push('/favorites');
+    );
+    return history.push('/favorites');
   })
   .catch((err) => dispatch(
     { type: ERROR, payload: err },

@@ -16,14 +16,17 @@ const SingleCar = () => {
   return (
     <>
       <FavNav name={currentUser} />
-        <div className="container single d-flex flex-column" key={state.car.id}>
-          <div className="w-25 d-flex flex-column single">
-            <Show image={state.car.image} price={state.car.price}
-                  about={state.car.about} details={state.car.details}
-                  id={state.car.id}
-            />
-          </div>
+      <div className="container single d-flex flex-column" key={state.car.id}>
+        <div className="w-25 d-flex flex-column single">
+          <Show
+            image={state.car.image}
+            price={state.car.price}
+            about={state.car.about}
+            details={state.car.details}
+            id={state.car.id}
+          />
         </div>
+      </div>
     </>
   );
 };

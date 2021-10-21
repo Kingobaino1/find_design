@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
-import { getSingleCar } from '../actions/index';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { getSingleCar } from '../actions/index';
 
 const Design = ({
   id,
   price,
   owner,
   image,
-  }) => {
+}) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const clickHandler = (ids) => {
-    ids = id;
+  const clickHandler = () => {
+    const ids = id;
     dispatch(getSingleCar(ids));
     history.push('/car');
   };
@@ -20,19 +20,22 @@ const Design = ({
     <>
       <div className="">
         <div className="d-flex flex-column mt-4">
-         <img onClick={clickHandler} src={image} alt={owner} className="img" role="presentation" />
-         <div className="d-flex justify-content-between home mt-3">
-          <span>{owner}</span>
-          <div className="pr-3">
-            <div className="pr-1">
-              ${price} / month
+          <img onClick={clickHandler} src={image} alt={owner} className="img" role="presentation" />
+          <div className="d-flex justify-content-between home mt-3">
+            <span>{owner}</span>
+            <div className="pr-3">
+              <div className="pr-1">
+                $
+                {price}
+                {' '}
+                / month
+              </div>
             </div>
           </div>
-         </div>
         </div>
       </div>
     </>
-  )
+  );
 };
 
 Design.propTypes = {

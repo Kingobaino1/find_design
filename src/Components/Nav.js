@@ -20,7 +20,9 @@ const Nav = ({ name, greetings }) => {
     <>
       <div className="d-none d-md-flex container nav-image d-flex justify-content-between home">
         <h6 className="text-secondary font-weight-light mt-3">
-          {greetings} {name}
+          {greetings}
+          {' '}
+          {name}
         </h6>
         <ul className="w m-5 mb-0 mt-3 d-flex justify-content-between">
           <li onClick={showFav} className="cursor mr-5" role="presentation">Favorites</li>

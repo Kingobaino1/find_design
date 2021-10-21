@@ -8,12 +8,12 @@ const Show = ({
   price,
   details,
   id,
-  }) => {
+}) => {
   const token = JSON.parse(localStorage.getItem('sessionID')).jwt;
   const userId = JSON.parse(localStorage.getItem('sessionID')).user.id;
   const dispatch = useDispatch();
-  const clickHandler = (ids) => {
-    ids = id;
+  const clickHandler = () => {
+    const ids = id;
     dispatch(saveFavoriteCar(ids, token, userId));
   };
   return (
@@ -25,7 +25,8 @@ const Show = ({
         <h6 className="text-white">{about}</h6>
         <div className="d-flex flex-column tex">
           <div className="text-white font-weight-bold">
-            ${price}
+            $
+            {price}
           </div>
           <div className="text-white font-weight-light">per month</div>
         </div>
@@ -40,11 +41,10 @@ const Show = ({
 };
 
 Show.propTypes = {
-  id: PropTypes.number,
-  price: PropTypes.number,
-  owner: PropTypes.string,
-  about: PropTypes.string,
-  image: PropTypes.string,
-  details: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  about: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  details: PropTypes.string.isRequired,
 };
 export default Show;

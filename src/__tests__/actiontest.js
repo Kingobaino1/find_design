@@ -141,11 +141,11 @@ const fetchDataHouse = async () => (dispatch) => fetch(('https://find-design-api
 const fetchDataFavorite = async () => (dispatch) => fetch(('https://find-design-api.herokuapp.com/users/1/favourites', {
   body: getCarObject,
   method: 'GET',
-  headers: { 'content-type': 'application/json', Accept: 'application/json', Authorization: `Bearer ${auth}`},
+  headers: { 'content-type': 'application/json', Accept: 'application/json', Authorization: `Bearer ${auth}` },
 }))
   .then(() => dispatch(successCar()));
-  const mockStore = configureStore([thunk]);
-  let store;
+const mockStore = configureStore([thunk]);
+let store;
 
 describe('sign up', () => {
   beforeEach(() => {
