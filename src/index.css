@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+.bg {
+  background-color: red;
+}
+
+.img {
+  height: 290px;
+  width: 300px;
+}
+
+.bg-image {
+  background-image: url('./Img/vin.jpeg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing {
+  background-image: url('./Img/car.jpeg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landing ul {
+  width: 15%;
+}
+
+li {
+  list-style: none;
+}
+
+.w {
+  width: 20%;
+}
+
+.home {
+  width: 87%;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.color {
+  background-color: #ec5200;
+  border: none;
+}
+
+.length {
+  width: 84%;
+}
+
+.about {
+  width: 280px;
+  position: relative;
+  bottom: 60px;
+  left: 10px;
+}
+
+.text {
+  width: 295px;
+}
+
+.underline {
+  list-style: none;
+}
+
+.single {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.list {
+  width: 200px;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav-media {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .name {
+    display: none;
+  }
+
+  .sign {
+    margin-right: 20px;
+  }
+
+  .w {
+    width: 85%;
+    margin: 0 auto;
+    display: inline;
+  }
+
+  .single {
+    width: 50%;
+    margin: 0;
+  }
+
+  .list {
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  .about {
+    width: 280px;
+    position: relative;
+    left: 20px;
+    bottom: 60px;
+  }
+
+  .text {
+    margin-left: 20px;
+  }
+}
